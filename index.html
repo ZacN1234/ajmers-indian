@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Ajmer's Indian Restaurant | Authentic Indian in Balgowlah &amp; Belrose Since 1990</title>
-  <meta name="description" content="Ajmer's Indian Restaurant — Balgowlah's first Indian restaurant since 1990. Authentic curries, tandoori &amp; more at two Northern Beaches locations. Balgowlah (02) 9948 5297 | Belrose (02) 9451 8875. BYO welcome. Book your table today.">
+  <meta name="description" content="Balgowlah's first Indian restaurant since 1990. Authentic curries, tandoori &amp; naan at two Northern Beaches locations. BYO welcome. Dine-in, takeaway &amp; delivery. Book now.">
   <link rel="canonical" href="https://ajmers.com.au/">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -20,6 +20,10 @@
   <meta property="og:title" content="Ajmer's Indian Restaurant | Authentic Indian in Balgowlah &amp; Belrose Since 1990">
   <meta property="og:description" content="Family-owned since 1990. Two Northern Beaches locations serving authentic Indian cuisine. BYO welcome. Dine-in, takeaway &amp; delivery.">
   <meta property="og:image" content="https://ajmers.com.au/images/ft-1.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Spread of authentic Indian dishes at Ajmer's Indian Restaurant including curries, naan bread, and onion bhaji">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:url" content="https://ajmers.com.au/">
   <meta property="og:site_name" content="Ajmer's Indian Restaurant">
   <meta property="og:locale" content="en_AU">
@@ -29,10 +33,12 @@
   <meta name="twitter:title" content="Ajmer's Indian Restaurant | Authentic Indian in Balgowlah &amp; Belrose Since 1990">
   <meta name="twitter:description" content="Family-owned since 1990. Two Northern Beaches locations serving authentic Indian cuisine.">
   <meta name="twitter:image" content="https://ajmers.com.au/images/ft-1.jpg">
+  <meta name="twitter:image:alt" content="Spread of authentic Indian dishes at Ajmer's Indian Restaurant including curries, naan bread, and onion bhaji">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/ft-1.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -153,6 +159,9 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    .hero h1 span {
+      -webkit-text-fill-color: var(--gold);
+    }
     .hero p {
       font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;
       line-height: 1.8;
@@ -225,11 +234,12 @@
     }
     .menu-card-body { padding: 28px; }
     .menu-card-body h3 { font-size: 1.3rem; margin-bottom: 20px; color: var(--text-light); }
-    .menu-item {
+    .menu-list { list-style: none; padding: 0; margin: 0; }
+    .menu-list li {
       display: flex; justify-content: space-between; align-items: baseline;
       padding: 14px 0; border-bottom: 1px solid var(--border);
     }
-    .menu-item:last-child { border-bottom: none; }
+    .menu-list li:last-child { border-bottom: none; }
     .menu-item-info { flex: 1; padding-right: 16px; }
     .menu-item-name { font-weight: 500; font-size: 0.95rem; color: var(--text-light); }
     .menu-item-tag {
@@ -246,6 +256,8 @@
     .menu-also { text-align: center; margin-top: 48px; padding: 40px; background: var(--bg-card-alt); border-radius: 16px; border: 1px solid var(--border); }
     .menu-also h3 { font-size: 1.3rem; margin-bottom: 16px; }
     .menu-also p { color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.8; }
+    .menu-cta { text-align: center; margin-top: 40px; }
+    .menu-cta p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
 
     /* ===== LOCATIONS ===== */
     .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -271,6 +283,13 @@
     .location-hours-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; }
     .location-hours-grid span:nth-child(odd) { color: var(--text-muted); font-size: 0.88rem; }
     .location-hours-grid span:nth-child(even) { color: var(--text-light); font-size: 0.88rem; }
+    .location-book-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+      font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 28px;
+      border-radius: 8px; background: var(--accent); color: #fff; transition: all 0.3s;
+    }
+    .location-book-btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-2px); }
 
     /* ===== TESTIMONIALS ===== */
     .testimonials { background: var(--bg-card); }
@@ -293,9 +312,11 @@
       border: 1px solid var(--border);
     }
     .rating-item { text-align: center; }
+    .rating-item a { color: inherit; text-decoration: none; }
+    .rating-item a:hover .rating-label { color: var(--gold); }
     .rating-score { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--gold); }
     .rating-max { font-size: 1rem; font-weight: 400; color: var(--text-dim); }
-    .rating-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+    .rating-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; transition: color 0.3s; }
     .rating-count { font-size: 0.72rem; color: var(--text-dim); }
 
     /* ===== GALLERY ===== */
@@ -353,6 +374,7 @@
     .contact-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
     .contact-icon { color: var(--accent); font-size: 1rem; margin-top: 3px; width: 20px; flex-shrink: 0; text-align: center; }
     .contact-row p, .contact-row a { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+    .contact-row address { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; font-style: normal; }
     .contact-row a:hover { color: var(--accent); }
     .contact-map { margin-top: 24px; border-radius: 12px; overflow: hidden; height: 200px; }
     .contact-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.3); }
@@ -444,7 +466,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": ["Restaurant", "FoodEstablishment"],
     "@id": "https://ajmers.com.au/#restaurant",
     "name": "Ajmer's Indian Restaurant",
     "alternateName": "Ajmer's Indian",
@@ -458,11 +480,43 @@
     "logo": "https://ajmers.com.au/images/ft-4.jpg",
     "telephone": "(02) 9948 5297",
     "foundingDate": "1990",
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Manjit Singh Saini"
+      },
+      {
+        "@type": "Person",
+        "name": "Daljit Singh Saini"
+      }
+    ],
+    "employee": {
+      "@type": "Person",
+      "name": "Daljit Singh Saini",
+      "jobTitle": "Head Chef"
+    },
     "servesCuisine": "Indian",
     "priceRange": "$20-$40",
     "acceptsReservations": true,
     "paymentAccepted": "Cash, Credit Card, Debit Card, EFTPOS",
     "currenciesAccepted": "AUD",
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Wheelchair Accessible",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free Parking",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "BYO Welcome",
+        "value": true
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Shop 7, 373 Sydney Rd",
@@ -505,7 +559,10 @@
     ],
     "sameAs": [
       "https://www.instagram.com/ajmersindian/",
-      "https://www.facebook.com/ajmersindian/"
+      "https://www.facebook.com/ajmersindian/",
+      "https://www.tripadvisor.com.au/Restaurant_Review-g1514350-d4943279-Reviews-Ajmer_s_Indian_Restaurant-Balgowlah_Manly_Greater_Sydney_New_South_Wales.html",
+      "https://www.firsttable.com.au/sydney/northern-beaches/balgowlah/ajmers-indian-restaurant",
+      "https://www.opentable.com.au/r/ajmers-indian-balgowlah"
     ],
     "hasMenu": {
       "@type": "Menu",
@@ -519,31 +576,39 @@
             {
               "@type": "MenuItem",
               "name": "Samosa (2pcs)",
-              "description": "Short pastry filled with peas and potatoes",
+              "description": "Crisp golden pastry, shatteringly flaky, stuffed with spiced potato and sweet peas",
               "offers": { "@type": "Offer", "price": "10.90", "priceCurrency": "AUD" },
               "suitableForDiet": "https://schema.org/VegetarianDiet"
             },
             {
               "@type": "MenuItem",
+              "name": "Aloo Tikki Chat",
+              "description": "Crisp potato patties topped with tangy tamarind, cool yoghurt, and fresh coriander",
+              "offers": { "@type": "Offer", "price": "8.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
               "name": "Tandoori Chicken Tikka",
+              "description": "Yoghurt-marinated chicken, charred in the tandoor until smoky and succulent",
               "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Sheesh Kebab (3pcs)",
-              "description": "Lamb mince with spices, skewered and tandoor cooked",
+              "description": "Seasoned lamb mince, pressed onto skewers and charred in the tandoor until smoky and tender",
               "offers": { "@type": "Offer", "price": "14.90", "priceCurrency": "AUD" },
               "suitableForDiet": "https://schema.org/GlutenFreeDiet"
             },
             {
               "@type": "MenuItem",
               "name": "Fish Pakora (6pcs)",
-              "description": "Fish coated with gram flour and traditional spices",
+              "description": "Flaky fish in a light, spiced chickpea batter — crisp outside, meltingly soft within",
               "offers": { "@type": "Offer", "price": "16.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Adaraki Lamb Chops",
+              "description": "Ginger-infused lamb cutlets, marinated overnight and seared in the tandoor",
               "offers": { "@type": "Offer", "price": "16.90", "priceCurrency": "AUD" }
             }
           ]
@@ -555,26 +620,50 @@
             {
               "@type": "MenuItem",
               "name": "Butter Chicken",
-              "description": "Boneless chicken half cooked in tandoor, finished in spicy tomatoes and creamy sauce",
+              "description": "Tandoor-roasted chicken, finished in our legendary slow-simmered tomato and butter sauce — velvety, rich, and the reason people drive across Sydney. The recipe hasn't changed since 1990.",
               "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" },
               "suitableForDiet": "https://schema.org/GlutenFreeDiet"
             },
             {
               "@type": "MenuItem",
               "name": "Chicken Korma",
-              "description": "Chicken fillet in delicate curry with cream and cashew nuts",
+              "description": "Tender chicken in a silky cashew and cream sauce — gentle, fragrant, and deeply comforting",
               "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Kadai Chicken",
-              "description": "Boneless chicken pan-fried in kadai with medium dry curry sauce",
+              "description": "Boneless chicken wok-tossed with capsicum, tomato, and roasted kadai spices — aromatic and lively",
+              "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Chicken Chettinad",
+              "description": "A fiery South Indian classic — bold crushed black pepper, fragrant curry leaves, serious heat",
+              "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Lamb Madras",
+              "description": "Slow-cooked lamb in a robust, tangy curry enriched with coconut milk — warming and deeply spiced",
+              "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Goat Bombay",
+              "description": "Slow-braised goat in a robust Bombay-style curry — rich, deep, and falling off the bone",
+              "offers": { "@type": "Offer", "price": "18.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Beef Masala",
+              "description": "Tender beef simmered with onion, capsicum, and ripe tomato in a medium-spiced masala sauce",
               "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Beef Vindaloo",
-              "description": "Traditional hot curry with vindaloo sauce",
+              "description": "The real deal — fiery Goan-style curry with sharp vinegar heat and bold chilli. Not for the faint-hearted.",
               "offers": { "@type": "Offer", "price": "23.90", "priceCurrency": "AUD" }
             }
           ]
@@ -586,33 +675,102 @@
             {
               "@type": "MenuItem",
               "name": "Kerala Prawns Curry",
-              "description": "Fennel, curry leaves, fresh coconut, black pepper",
+              "description": "Plump prawns in a fragrant Kerala-style curry — fennel, fresh coconut, curry leaves, and cracked black pepper",
               "offers": { "@type": "Offer", "price": "25.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Fish Masala",
-              "description": "Local fish with thick medium curry sauce",
+              "description": "Fresh local fish in a rich, aromatic masala — tomato-forward with warming spices",
               "offers": { "@type": "Offer", "price": "25.90", "priceCurrency": "AUD" }
             },
             {
               "@type": "MenuItem",
               "name": "Goa Fish",
-              "description": "Fish fillets in fenugreek and spicy curry sauce",
+              "description": "Fish fillets swimming in a punchy Goan curry — fenugreek-laced, spice-forward, unmistakably bold",
               "offers": { "@type": "Offer", "price": "25.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Prawn Makhani",
+              "description": "Prawns in our signature makhani butter sauce — the butter chicken treatment, seafood edition",
+              "offers": { "@type": "Offer", "price": "25.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Malabar Fish",
+              "description": "Fish simmered in a Malabar Coast-style coconut curry — mellow, creamy, aromatic",
+              "offers": { "@type": "Offer", "price": "25.90", "priceCurrency": "AUD" }
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Sides, Breads & Vegetarian",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Naan / Garlic Naan / Cheese Naan",
+              "description": "Hand-stretched and blistered in our clay tandoor — pillowy, slightly charred, impossible to stop eating",
+              "offers": { "@type": "Offer", "price": "4.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Peshwari Naan",
+              "description": "Sweet, golden naan stuffed with coconut, sultanas, and crushed almonds — dessert disguised as bread",
+              "offers": { "@type": "Offer", "price": "6.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Biryani",
+              "description": "Layers of fragrant basmati, slow-cooked with your choice of chicken, lamb, or prawn — aromatic, steaming, and sealed with saffron",
+              "offers": { "@type": "Offer", "price": "18.90", "priceCurrency": "AUD" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Malai Kofta",
+              "description": "Handmade vegetable and paneer dumplings in a luscious, cashew-enriched cream sauce",
+              "offers": { "@type": "Offer", "price": "20.90", "priceCurrency": "AUD" },
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Palak Paneer",
+              "description": "Cubes of fresh paneer in a vibrant, silky spinach sauce — a vegetarian staple done right",
+              "offers": { "@type": "Offer", "price": "20.90", "priceCurrency": "AUD" },
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Aloo Gobhi",
+              "description": "Potato and cauliflower dry-roasted with turmeric, cumin, and mustard seed — humble ingredients, extraordinary flavour",
+              "offers": { "@type": "Offer", "price": "18.90", "priceCurrency": "AUD" },
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Pistachio Kulfi",
+              "description": "Dense, creamy, cardamom-scented frozen dessert studded with pistachios — nothing like ice cream, everything like heaven",
+              "offers": { "@type": "Offer", "price": "8.90", "priceCurrency": "AUD" }
             }
           ]
         }
       ]
     },
     "department": {
-      "@type": "Restaurant",
+      "@type": ["Restaurant", "FoodEstablishment"],
       "@id": "https://ajmers.com.au/#belrose",
       "name": "Ajmer's Indian Restaurant Belrose",
+      "description": "Ajmer's Indian Restaurant second location in Belrose, Glenrose Village Shopping Centre — serving the same authentic Indian cuisine since 1990.",
       "servesCuisine": "Indian",
       "priceRange": "$20-$40",
       "telephone": "(02) 9451 8875",
       "acceptsReservations": true,
+      "paymentAccepted": "Cash, Credit Card, Debit Card, EFTPOS",
+      "image": "https://ajmers.com.au/images/ft-4.jpg",
+      "parentOrganization": {
+        "@id": "https://ajmers.com.au/#restaurant"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Shop 32, 56-58 Glen St, Glenrose Village Shopping Centre",
@@ -620,6 +778,11 @@
         "addressRegion": "NSW",
         "postalCode": "2085",
         "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.7373,
+        "longitude": 151.2133
       },
       "openingHoursSpecification": [
         {
@@ -641,6 +804,35 @@
           "closes": "21:00"
         }
       ]
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "datePublished": "2024-03-15",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "markwilliamsheehan" },
+        "reviewBody": "The best Indian plates outside of India"
+      },
+      {
+        "@type": "Review",
+        "datePublished": "2024-05-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Benjamin" },
+        "reviewBody": "Best Indian food I ever had in Sydney, especially the Butter chicken and lamb korma"
+      },
+      {
+        "@type": "Review",
+        "datePublished": "2024-06-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Richard D" },
+        "reviewBody": "Best Onion Bhaji this side of India!"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.3",
+      "bestRating": "5",
+      "ratingCount": "260"
     }
   }
   </script>
@@ -680,7 +872,7 @@
         "name": "Is Ajmer's Indian Restaurant BYO?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Ajmer's Indian Restaurant is BYO (Bring Your Own) and also fully licensed, so guests can bring their own wine and beer or order from the drinks menu."
+          "text": "Yes, Ajmer's Indian Restaurant is BYO (Bring Your Own) for wine and beer, and also fully licensed. Guests can bring their own bottle or order from the drinks menu. Either way, they're sorted."
         }
       },
       {
@@ -720,7 +912,7 @@
         "name": "What is the best dish at Ajmer's Indian Restaurant?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Butter Chicken is the most popular dish, renowned across the Northern Beaches. Other guest favourites include the Lamb Korma, Onion Bhaji, Tandoori Chicken Tikka, and Kerala Prawns Curry."
+          "text": "The Butter Chicken is the dish that built Ajmer's reputation — guests have been ordering it since 1990, and the recipe hasn't changed a day. The Lamb Korma, Onion Bhaji, and Kerala Prawns are close behind."
         }
       },
       {
@@ -728,7 +920,7 @@
         "name": "Is Ajmer's Indian Restaurant family friendly?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Ajmer's Indian Restaurant is very family friendly with a warm, welcoming atmosphere and mild dishes available for children."
+          "text": "Yes, Ajmer's Indian Restaurant is very family friendly with a warm, welcoming atmosphere and mild dishes available for children. Many guests started coming as children themselves and now bring their own families. That's the kind of restaurant Ajmer's always wanted to be."
         }
       },
       {
@@ -736,7 +928,7 @@
         "name": "How far is Ajmer's Indian Restaurant from Manly?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Balgowlah restaurant is approximately 5 minutes by car from Manly, making it a convenient choice for diners from across the Northern Beaches."
+          "text": "The Balgowlah restaurant is approximately 5 minutes by car from Manly, making it a convenient choice for diners from across Sydney's Northern Beaches."
         }
       },
       {
@@ -759,38 +951,17 @@
   }
   </script>
 
-  <!-- JSON-LD: Reviews -->
+  <!-- JSON-LD: BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "@id": "https://ajmers.com.au/#restaurant",
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "markwilliamsheehan" },
-        "reviewBody": "The best Indian plates outside of India"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Benjamin" },
-        "reviewBody": "Best Indian food I ever had in Sydney, especially the Butter chicken and lamb korma"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Richard D" },
-        "reviewBody": "Best Onion Bhaji this side of India!"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.3",
-      "bestRating": "5",
-      "ratingCount": "260"
-    }
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ajmers.com.au/"},
+      {"@type": "ListItem", "position": 2, "name": "Menu", "item": "https://ajmers.com.au/#menu"},
+      {"@type": "ListItem", "position": 3, "name": "Locations", "item": "https://ajmers.com.au/#locations"},
+      {"@type": "ListItem", "position": 4, "name": "Contact", "item": "https://ajmers.com.au/#contact"}
+    ]
   }
   </script>
 </head>
@@ -826,17 +997,18 @@
   <a href="tel:0299485297" class="btn btn-primary" onclick="closeMobile()">Call (02) 9948 5297</a>
 </div>
 
+<main>
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
   <div class="hero-bg" role="img" aria-label="Spread of authentic Indian dishes including curries, naan bread, rice and onion bhaji"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">Est. 1990 &mdash; Balgowlah &amp; Belrose</div>
-    <h1>36 Years of Authentic Indian Cuisine on the Northern Beaches</h1>
-    <p>Step through our doors and let the fragrant aromas of slow-simmered spices, freshly baked naan from the tandoor, and decades of family tradition welcome you home.</p>
+    <div class="hero-badge">Family-Owned Since 1990 &mdash; Balgowlah &amp; Belrose</div>
+    <h1>Balgowlah's First. The Northern Beaches' Favourite. <span>Since 1990.</span></h1>
+    <p>The tandoor has been burning since 1990. Chef Daljit is still in the kitchen. The butter chicken still stops conversations mid-sentence. Some things on the Northern Beaches don't change &mdash; and we wouldn't have it any other way.</p>
     <div class="hero-ctas">
-      <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
-      <a href="tel:0299485297" class="btn btn-outline">Book a Table &mdash; (02) 9948 5297</a>
+      <a href="#menu" class="btn btn-primary">See What's Cooking</a>
+      <a href="tel:0299485297" class="btn btn-outline">Reserve Your Table &mdash; (02) 9948 5297</a>
     </div>
   </div>
 </section>
@@ -846,16 +1018,17 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-images">
-        <img src="images/ft-3.jpg" alt="Ajmer's Indian Restaurant bar and interior with warm lighting" loading="lazy">
-        <img src="images/ft-5.jpg" alt="Candlelit table setting creating a romantic dining atmosphere" loading="lazy">
-        <img src="images/ft-4.jpg" alt="Ajmer's Indian Restaurant exterior storefront with signage" loading="lazy">
+        <img src="images/ft-3.jpg" alt="Ajmer's Indian Restaurant Balgowlah bar and interior with warm ambient lighting" loading="lazy">
+        <img src="images/ft-5.jpg" alt="Romantic candlelit table setting at Ajmer's Indian Restaurant Balgowlah" loading="lazy">
+        <img src="images/ft-4.jpg" alt="Ajmer's Indian Restaurant Balgowlah exterior storefront with illuminated signage on Sydney Road" loading="lazy">
       </div>
       <div class="about-text">
         <div class="section-label">Our Story</div>
         <h2 class="section-title">Balgowlah's Very First Indian Restaurant</h2>
-        <p>In 1990, when the Northern Beaches had never tasted a proper tandoori, <strong>Manjit and Daljit Singh Saini</strong> opened the doors of Ajmer's Indian Restaurant on Sydney Road, Balgowlah. It was a bold move &mdash; and it changed the neighbourhood forever.</p>
-        <p>Thirty-six years later, those same hands are still in the kitchen. <strong>Chef Daljit</strong>, with over 30 years of culinary mastery, brings the same passion to every dish that he did on opening night. Every curry is slow-simmered with care. Every naan is hand-stretched and charred in the tandoor. Every plate carries three decades of tradition.</p>
-        <p>Our regulars have been dining with us for generations &mdash; parents who came on first dates now bring their children. Described as <strong>"one of Sydney's most romantic dinner destinations,"</strong> we've built something rare: a place where rich, aromatic flavours meet genuine warmth and hospitality.</p>
+        <p><strong>Ajmer's Indian Restaurant is a family-owned Indian restaurant on Sydney's Northern Beaches, serving authentic curries, tandoori, and naan from two locations in Balgowlah and Belrose since 1990.</strong></p>
+        <p>In 1990, when the Northern Beaches had never tasted a proper tandoori, <strong>Manjit and Daljit Singh Saini</strong> opened a small Indian restaurant on Sydney Road, Balgowlah. Nobody had tried it before. It was a risk &mdash; and it changed the neighbourhood forever.</p>
+        <p>Thirty-six years later, <strong>Chef Daljit</strong> is still in the kitchen. Not supervising &mdash; cooking. The same hands that lit the tandoor on opening night still stretch every naan, still stir every curry, still taste every sauce before it leaves the pass. The butter chicken recipe hasn't changed. The spice blends are still ground in-house. The only thing different is how far people drive to eat it.</p>
+        <p>Regulars drive from Mosman for the butter chicken. Couples who had their first date here now book the same table with their kids. We've been called <strong>"one of Sydney's most romantic dinner destinations"</strong> &mdash; but to us, romance is just what happens when the food is made with that much care.</p>
         <p>We're not a chain. We're not a trend. We're a family, and we'd love to welcome you to our table.</p>
         <div class="about-stats">
           <div>
@@ -881,8 +1054,8 @@
   <div class="container">
     <div class="section-header">
       <div class="section-label">Our Menu</div>
-      <h2 class="section-title">Crafted with Passion, Served with Pride</h2>
-      <p class="section-subtitle">Every dish tells a story &mdash; of fragrant spice blends passed down through generations, of ingredients sourced fresh each morning, and of Chef Daljit's unwavering dedication to authenticity.</p>
+      <h2 class="section-title">The Menu Chef Daljit Has Spent 30 Years Perfecting</h2>
+      <p class="section-subtitle">Spice blends ground fresh each morning. Recipes that haven't changed since 1990. A tandoor that never goes cold. This is what's on offer.</p>
       <div class="divider"></div>
     </div>
 
@@ -890,116 +1063,124 @@
       <!-- Starters -->
       <div class="menu-card">
         <div class="menu-card-img">
-          <img src="images/ft-6.jpg" alt="Golden onion bhaji with fresh coriander garnish" loading="lazy">
+          <img src="images/ft-6.jpg" alt="Golden onion bhaji starter with fresh coriander garnish at Ajmer's Indian Restaurant" loading="lazy">
           <div class="menu-card-label">Starters</div>
         </div>
         <div class="menu-card-body">
           <h3>Entrees &amp; Small Plates</h3>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Samosa (2pcs) <span class="menu-item-tag tag-v">V</span></div>
-              <div class="menu-item-desc">Short pastry filled with peas and potatoes</div>
-            </div>
-            <div class="menu-item-price">$10.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Aloo Tikki Chat</div>
-            </div>
-            <div class="menu-item-price">$8.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Tandoori Chicken Tikka</div>
-            </div>
-            <div class="menu-item-price">$11.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Sheesh Kebab (3pcs) <span class="menu-item-tag tag-gf">GF</span></div>
-              <div class="menu-item-desc">Lamb mince with spices, skewered and tandoor cooked</div>
-            </div>
-            <div class="menu-item-price">$14.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Fish Pakora (6pcs)</div>
-              <div class="menu-item-desc">Fish coated with gram flour and traditional spices</div>
-            </div>
-            <div class="menu-item-price">$16.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Adaraki Lamb Chops</div>
-            </div>
-            <div class="menu-item-price">$16.90</div>
-          </div>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Samosa (2pcs) <span class="menu-item-tag tag-v">V</span></div>
+                <div class="menu-item-desc">Crisp golden pastry, shatteringly flaky, stuffed with spiced potato and sweet peas</div>
+              </div>
+              <div class="menu-item-price">$10.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Aloo Tikki Chat</div>
+                <div class="menu-item-desc">Crisp potato patties topped with tangy tamarind, cool yoghurt, and fresh coriander</div>
+              </div>
+              <div class="menu-item-price">$8.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Tandoori Chicken Tikka</div>
+                <div class="menu-item-desc">Yoghurt-marinated chicken, charred in the tandoor until smoky and succulent</div>
+              </div>
+              <div class="menu-item-price">$11.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Sheesh Kebab (3pcs) <span class="menu-item-tag tag-gf">GF</span></div>
+                <div class="menu-item-desc">Seasoned lamb mince, pressed onto skewers and charred in the tandoor until smoky and tender</div>
+              </div>
+              <div class="menu-item-price">$14.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Fish Pakora (6pcs)</div>
+                <div class="menu-item-desc">Flaky fish in a light, spiced chickpea batter &mdash; crisp outside, meltingly soft within</div>
+              </div>
+              <div class="menu-item-price">$16.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Adaraki Lamb Chops</div>
+                <div class="menu-item-desc">Ginger-infused lamb cutlets, marinated overnight and seared in the tandoor</div>
+              </div>
+              <div class="menu-item-price">$16.90</div>
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- Signature Curries -->
       <div class="menu-card">
         <div class="menu-card-img">
-          <img src="images/ft-2.jpg" alt="Rich butter chicken in a traditional copper balti dish" loading="lazy">
+          <img src="images/ft-2.jpg" alt="Ajmer's signature butter chicken served in a traditional copper balti dish" loading="lazy">
           <div class="menu-card-label">Signature Curries</div>
         </div>
         <div class="menu-card-body">
           <h3>From the Kitchen</h3>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Butter Chicken <span class="menu-item-tag tag-mild">Mild</span> <span class="menu-item-tag tag-gf">GF</span></div>
-              <div class="menu-item-desc">Boneless chicken half cooked in tandoor, finished in spicy tomatoes and creamy sauce</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Chicken Korma <span class="menu-item-tag tag-mild">Mild</span></div>
-              <div class="menu-item-desc">Chicken fillet in delicate curry with cream and cashew nuts</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Kadai Chicken <span class="menu-item-tag tag-med">Med</span></div>
-              <div class="menu-item-desc">Boneless chicken pan-fried in kadai with medium dry curry sauce</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Chicken Chettinad <span class="menu-item-tag tag-hot">Hot</span></div>
-              <div class="menu-item-desc">South Indian specialty with crushed black pepper and fresh curry leaves</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Lamb Madras <span class="menu-item-tag tag-hot">Hot</span></div>
-              <div class="menu-item-desc">Spices and coconut milk</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Goat Bombay</div>
-            </div>
-            <div class="menu-item-price">$18.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Beef Masala <span class="menu-item-tag tag-med">Med</span></div>
-              <div class="menu-item-desc">Medium beef curry with onions, capsicum and fresh tomatoes</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Beef Vindaloo <span class="menu-item-tag tag-hot">Very Hot</span></div>
-              <div class="menu-item-desc">Traditional hot curry with vindaloo sauce</div>
-            </div>
-            <div class="menu-item-price">$23.90</div>
-          </div>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Butter Chicken <span class="menu-item-tag tag-mild">Mild</span> <span class="menu-item-tag tag-gf">GF</span></div>
+                <div class="menu-item-desc">Tandoor-roasted chicken, finished in our legendary slow-simmered tomato and butter sauce &mdash; velvety, rich, and the reason people drive across Sydney. The recipe hasn't changed since 1990.</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Chicken Korma <span class="menu-item-tag tag-mild">Mild</span></div>
+                <div class="menu-item-desc">Tender chicken in a silky cashew and cream sauce &mdash; gentle, fragrant, and deeply comforting</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Kadai Chicken <span class="menu-item-tag tag-med">Med</span></div>
+                <div class="menu-item-desc">Boneless chicken wok-tossed with capsicum, tomato, and roasted kadai spices &mdash; aromatic and lively</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Chicken Chettinad <span class="menu-item-tag tag-hot">Hot</span></div>
+                <div class="menu-item-desc">A fiery South Indian classic &mdash; bold crushed black pepper, fragrant curry leaves, serious heat</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Lamb Madras <span class="menu-item-tag tag-hot">Hot</span></div>
+                <div class="menu-item-desc">Slow-cooked lamb in a robust, tangy curry enriched with coconut milk &mdash; warming and deeply spiced</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Goat Bombay</div>
+                <div class="menu-item-desc">Slow-braised goat in a robust Bombay-style curry &mdash; rich, deep, and falling off the bone</div>
+              </div>
+              <div class="menu-item-price">$18.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Beef Masala <span class="menu-item-tag tag-med">Med</span></div>
+                <div class="menu-item-desc">Tender beef simmered with onion, capsicum, and ripe tomato in a medium-spiced masala sauce</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Beef Vindaloo <span class="menu-item-tag tag-hot">Very Hot</span></div>
+                <div class="menu-item-desc">The real deal &mdash; fiery Goan-style curry with sharp vinegar heat and bold chilli. Not for the faint-hearted.</div>
+              </div>
+              <div class="menu-item-price">$23.90</div>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -1014,39 +1195,43 @@
         </div>
         <div class="menu-card-body">
           <h3>Seafood Specialties</h3>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Kerala Prawns Curry <span class="menu-item-tag tag-med">Med</span></div>
-              <div class="menu-item-desc">Fennel, curry leaves, fresh coconut, black pepper</div>
-            </div>
-            <div class="menu-item-price">$25.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Fish Masala <span class="menu-item-tag tag-med">Med</span></div>
-              <div class="menu-item-desc">Local fish with thick medium curry sauce</div>
-            </div>
-            <div class="menu-item-price">$25.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Goa Fish <span class="menu-item-tag tag-hot">Hot</span></div>
-              <div class="menu-item-desc">Fish fillets in fenugreek and spicy curry sauce</div>
-            </div>
-            <div class="menu-item-price">$25.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Prawn Makhani</div>
-            </div>
-            <div class="menu-item-price">$25.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Malabar Fish</div>
-            </div>
-            <div class="menu-item-price">$25.90</div>
-          </div>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Kerala Prawns Curry <span class="menu-item-tag tag-med">Med</span></div>
+                <div class="menu-item-desc">Plump prawns in a fragrant Kerala-style curry &mdash; fennel, fresh coconut, curry leaves, and cracked black pepper</div>
+              </div>
+              <div class="menu-item-price">$25.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Fish Masala <span class="menu-item-tag tag-med">Med</span></div>
+                <div class="menu-item-desc">Fresh local fish in a rich, aromatic masala &mdash; tomato-forward with warming spices</div>
+              </div>
+              <div class="menu-item-price">$25.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Goa Fish <span class="menu-item-tag tag-hot">Hot</span></div>
+                <div class="menu-item-desc">Fish fillets swimming in a punchy Goan curry &mdash; fenugreek-laced, spice-forward, unmistakably bold</div>
+              </div>
+              <div class="menu-item-price">$25.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Prawn Makhani</div>
+                <div class="menu-item-desc">Prawns in our signature makhani butter sauce &mdash; the butter chicken treatment, seafood edition</div>
+              </div>
+              <div class="menu-item-price">$25.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Malabar Fish</div>
+                <div class="menu-item-desc">Fish simmered in a Malabar Coast-style coconut curry &mdash; mellow, creamy, aromatic</div>
+              </div>
+              <div class="menu-item-price">$25.90</div>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -1061,55 +1246,57 @@
         </div>
         <div class="menu-card-body">
           <h3>Breads, Rice &amp; Vegetarian</h3>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Naan / Garlic Naan / Cheese Naan</div>
-              <div class="menu-item-desc">Freshly baked in our tandoor oven</div>
-            </div>
-            <div class="menu-item-price">from $4.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Peshwari Naan</div>
-              <div class="menu-item-desc">Sweet naan filled with coconut, sultanas and almonds</div>
-            </div>
-            <div class="menu-item-price">$6.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Biryani</div>
-              <div class="menu-item-desc">Fragrant basmati rice with your choice of protein</div>
-            </div>
-            <div class="menu-item-price">from $18.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Malai Kofta <span class="menu-item-tag tag-v">V</span></div>
-              <div class="menu-item-desc">Vegetable dumplings in rich creamy sauce</div>
-            </div>
-            <div class="menu-item-price">$20.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Palak Paneer <span class="menu-item-tag tag-v">V</span> <span class="menu-item-tag tag-gf">GF</span></div>
-              <div class="menu-item-desc">Cottage cheese in creamy spinach</div>
-            </div>
-            <div class="menu-item-price">$20.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Aloo Gobhi <span class="menu-item-tag tag-v">V</span> <span class="menu-item-tag tag-gf">GF</span></div>
-              <div class="menu-item-desc">Potato and cauliflower with aromatic spices</div>
-            </div>
-            <div class="menu-item-price">$18.90</div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <div class="menu-item-name">Pistachio Kulfi</div>
-              <div class="menu-item-desc">Traditional Indian ice cream with pistachio</div>
-            </div>
-            <div class="menu-item-price">$8.90</div>
-          </div>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Naan / Garlic Naan / Cheese Naan</div>
+                <div class="menu-item-desc">Hand-stretched and blistered in our clay tandoor &mdash; pillowy, slightly charred, impossible to stop eating</div>
+              </div>
+              <div class="menu-item-price">from $4.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Peshwari Naan</div>
+                <div class="menu-item-desc">Sweet, golden naan stuffed with coconut, sultanas, and crushed almonds &mdash; dessert disguised as bread</div>
+              </div>
+              <div class="menu-item-price">$6.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Biryani</div>
+                <div class="menu-item-desc">Layers of fragrant basmati, slow-cooked with your choice of chicken, lamb, or prawn &mdash; aromatic, steaming, and sealed with saffron</div>
+              </div>
+              <div class="menu-item-price">from $18.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Malai Kofta <span class="menu-item-tag tag-v">V</span></div>
+                <div class="menu-item-desc">Handmade vegetable and paneer dumplings in a luscious, cashew-enriched cream sauce</div>
+              </div>
+              <div class="menu-item-price">$20.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Palak Paneer <span class="menu-item-tag tag-v">V</span> <span class="menu-item-tag tag-gf">GF</span></div>
+                <div class="menu-item-desc">Cubes of fresh paneer in a vibrant, silky spinach sauce &mdash; a vegetarian staple done right</div>
+              </div>
+              <div class="menu-item-price">$20.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Aloo Gobhi <span class="menu-item-tag tag-v">V</span> <span class="menu-item-tag tag-gf">GF</span></div>
+                <div class="menu-item-desc">Potato and cauliflower dry-roasted with turmeric, cumin, and mustard seed &mdash; humble ingredients, extraordinary flavour</div>
+              </div>
+              <div class="menu-item-price">$18.90</div>
+            </li>
+            <li>
+              <div class="menu-item-info">
+                <div class="menu-item-name">Pistachio Kulfi</div>
+                <div class="menu-item-desc">Dense, creamy, cardamom-scented frozen dessert studded with pistachios &mdash; nothing like ice cream, everything like heaven</div>
+              </div>
+              <div class="menu-item-price">$8.90</div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1118,6 +1305,11 @@
       <h3>And So Much More</h3>
       <p>Our full menu features over 80 dishes &mdash; from fragrant biryanis and tandoori specialities to vegetable kadhais, rice dishes, pappadums, raita, and an irresistible dessert selection. Ask us about our daily specials and Chef Daljit's seasonal creations. <strong>BYO welcome</strong> &mdash; we're also fully licensed.</p>
     </div>
+
+    <div class="menu-cta">
+      <p>Ready to eat? Call Balgowlah on <a href="tel:0299485297">(02) 9948 5297</a> or Belrose on <a href="tel:0294518875">(02) 9451 8875</a></p>
+      <a href="tel:0299485297" class="btn btn-primary">Book Your Table</a>
+    </div>
   </div>
 </section>
 
@@ -1125,9 +1317,9 @@
 <section id="locations">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Our Locations</div>
-      <h2 class="section-title">Two Homes on the Northern Beaches</h2>
-      <p class="section-subtitle">Whether you're in Balgowlah or Belrose, a warm welcome and unforgettable meal are just around the corner.</p>
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Two Restaurants. One Family.</h2>
+      <p class="section-subtitle">Whether you're in Balgowlah or Belrose, Chef Daljit's kitchen and a table with your name on it are just around the corner.</p>
       <div class="divider"></div>
     </div>
 
@@ -1142,7 +1334,7 @@
           <h3>Balgowlah</h3>
           <div class="location-detail">
             <div class="location-icon">&#9906;</div>
-            <p>Shop 7, 373 Sydney Rd<br>Balgowlah NSW 2093</p>
+            <address>Shop 7, 373 Sydney Rd<br>Balgowlah NSW 2093</address>
           </div>
           <div class="location-detail">
             <div class="location-icon">&#9742;</div>
@@ -1151,15 +1343,16 @@
           <div class="location-detail">
             <div class="location-icon">&#9201;</div>
             <div class="location-hours-grid">
-              <span>Mon &ndash; Thu</span><span>5:00pm &ndash; 10:00pm</span>
-              <span>Fri &ndash; Sat</span><span>5:00pm &ndash; 10:30pm</span>
-              <span>Sunday</span><span>5:00pm &ndash; 10:00pm</span>
+              <span>Mon &ndash; Thu</span><span><time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:00">10:00pm</time></span>
+              <span>Fri &ndash; Sat</span><span><time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:30">10:30pm</time></span>
+              <span>Sunday</span><span><time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:00">10:00pm</time></span>
             </div>
           </div>
           <div class="location-detail">
             <div class="location-icon">&#9733;</div>
             <p>45 seats &bull; Free parking &bull; Wheelchair accessible &bull; BYO &amp; Licensed</p>
           </div>
+          <a href="tel:0299485297" class="location-book-btn">Book a Table</a>
         </div>
       </div>
 
@@ -1173,7 +1366,7 @@
           <h3>Belrose &mdash; Glenrose Village</h3>
           <div class="location-detail">
             <div class="location-icon">&#9906;</div>
-            <p>Shop 32, 56-58 Glen St<br>Glenrose Village Shopping Centre<br>Belrose NSW 2085</p>
+            <address>Shop 32, 56-58 Glen St<br>Glenrose Village Shopping Centre<br>Belrose NSW 2085</address>
           </div>
           <div class="location-detail">
             <div class="location-icon">&#9742;</div>
@@ -1182,15 +1375,16 @@
           <div class="location-detail">
             <div class="location-icon">&#9201;</div>
             <div class="location-hours-grid">
-              <span>Mon &ndash; Fri</span><span>11:30am &ndash; 9:00pm</span>
-              <span>Saturday</span><span>1:30pm &ndash; 9:00pm</span>
-              <span>Sunday</span><span>4:30pm &ndash; 9:00pm</span>
+              <span>Mon &ndash; Fri</span><span><time datetime="11:30">11:30am</time> &ndash; <time datetime="21:00">9:00pm</time></span>
+              <span>Saturday</span><span><time datetime="13:30">1:30pm</time> &ndash; <time datetime="21:00">9:00pm</time></span>
+              <span>Sunday</span><span><time datetime="16:30">4:30pm</time> &ndash; <time datetime="21:00">9:00pm</time></span>
             </div>
           </div>
           <div class="location-detail">
             <div class="location-icon">&#9733;</div>
             <p>Free parking &bull; Wheelchair accessible &bull; BYO &amp; Licensed &bull; Lunch service</p>
           </div>
+          <a href="tel:0294518875" class="location-book-btn">Book a Table</a>
         </div>
       </div>
     </div>
@@ -1201,9 +1395,9 @@
 <section class="testimonials" id="reviews">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">What Our Guests Say</div>
-      <h2 class="section-title">36 Years of Happy Diners</h2>
-      <p class="section-subtitle">We don't just serve food &mdash; we create memories. Here's what our guests have to say about their experience at Ajmer's.</p>
+      <div class="section-label">Straight from the Table</div>
+      <h2 class="section-title">Don't Take Our Word for It</h2>
+      <p class="section-subtitle">We've been feeding the Northern Beaches since 1990. Here's what keeps people coming back.</p>
       <div class="divider"></div>
     </div>
 
@@ -1248,19 +1442,25 @@
 
     <div class="ratings-bar">
       <div class="rating-item">
-        <div class="rating-score">9.5<span class="rating-max">/10</span></div>
-        <div class="rating-label">FirstTable</div>
-        <div class="rating-count">116 reviews</div>
+        <a href="https://www.firsttable.com.au/sydney/northern-beaches/balgowlah/ajmers-indian-restaurant" target="_blank" rel="noopener noreferrer">
+          <div class="rating-score">9.5<span class="rating-max">/10</span></div>
+          <div class="rating-label">FirstTable</div>
+          <div class="rating-count">116 reviews</div>
+        </a>
       </div>
       <div class="rating-item">
-        <div class="rating-score">4.0<span class="rating-max">/5</span></div>
-        <div class="rating-label">TripAdvisor</div>
-        <div class="rating-count">72 reviews</div>
+        <a href="https://www.tripadvisor.com.au/Restaurant_Review-g1514350-d4943279-Reviews-Ajmer_s_Indian_Restaurant-Balgowlah_Manly_Greater_Sydney_New_South_Wales.html" target="_blank" rel="noopener noreferrer">
+          <div class="rating-score">4.0<span class="rating-max">/5</span></div>
+          <div class="rating-label">TripAdvisor</div>
+          <div class="rating-count">72 reviews</div>
+        </a>
       </div>
       <div class="rating-item">
-        <div class="rating-score">4.3<span class="rating-max">/5</span></div>
-        <div class="rating-label">OpenTable</div>
-        <div class="rating-count">&nbsp;</div>
+        <a href="https://www.opentable.com.au/r/ajmers-indian-balgowlah" target="_blank" rel="noopener noreferrer">
+          <div class="rating-score">4.3<span class="rating-max">/5</span></div>
+          <div class="rating-label">OpenTable</div>
+          <div class="rating-count">&nbsp;</div>
+        </a>
       </div>
     </div>
   </div>
@@ -1270,8 +1470,8 @@
 <section id="gallery">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Gallery</div>
-      <h2 class="section-title">A Feast for the Eyes</h2>
+      <div class="section-label">Inside Ajmer's</div>
+      <h2 class="section-title">See for Yourself</h2>
       <p class="section-subtitle">From the rich colours of our curries to the warm glow of our dining room &mdash; every detail is crafted for your pleasure.</p>
       <div class="divider"></div>
     </div>
@@ -1284,16 +1484,16 @@
         <img src="images/ft-2.jpg" alt="Rich butter chicken close-up served in traditional copper balti dish" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="images/ft-3.jpg" alt="Ajmer's bar and counter area with warm ambient lighting" loading="lazy">
+        <img src="images/ft-3.jpg" alt="Ajmer's Indian Restaurant Balgowlah bar and interior with warm ambient lighting" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="images/ft-4.jpg" alt="Ajmer's Indian Restaurant exterior storefront with illuminated signage" loading="lazy">
+        <img src="images/ft-4.jpg" alt="Ajmer's Indian Restaurant Balgowlah exterior storefront with illuminated signage on Sydney Road" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="images/ft-5.jpg" alt="Romantic candlelit table setting at Ajmer's Indian Restaurant" loading="lazy">
+        <img src="images/ft-5.jpg" alt="Romantic candlelit table setting at Ajmer's Indian Restaurant Balgowlah" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="images/ft-6.jpg" alt="Golden onion bhaji close-up garnished with fresh coriander" loading="lazy">
+        <img src="images/ft-6.jpg" alt="Crispy onion bhaji close-up at Ajmer's Indian Restaurant Northern Beaches" loading="lazy">
       </div>
     </div>
   </div>
@@ -1303,8 +1503,8 @@
 <section class="faq-section" id="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Frequently Asked Questions</div>
-      <h2 class="section-title">Everything You Need to Know</h2>
+      <div class="section-label">Questions?</div>
+      <h2 class="section-title">Before You Visit</h2>
       <p class="section-subtitle">Got a question? We've probably answered it below. If not, give us a ring &mdash; we'd love to chat.</p>
       <div class="divider"></div>
     </div>
@@ -1331,7 +1531,7 @@
       <div class="faq-item">
         <button class="faq-question">Is Ajmer's BYO?</button>
         <div class="faq-answer">
-          <p>Yes! We're BYO for wine and beer, so feel free to bring your favourite bottle. We're also fully licensed, so you can order from our drinks menu if you prefer. Either way, we've got you covered.</p>
+          <p>Yes! We're BYO for wine and beer, so feel free to bring your favourite bottle. We're also fully licensed, so you can order from our drinks menu if you prefer. Either way, you're sorted.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -1361,13 +1561,13 @@
       <div class="faq-item">
         <button class="faq-question">What's your best dish?</button>
         <div class="faq-answer">
-          <p>That's like asking us to pick a favourite child! But if we had to choose, our Butter Chicken is legendary &mdash; it's the dish that's kept people coming back for over three decades. The Lamb Korma, Onion Bhaji, and Kerala Prawns Curry are also firm favourites. Honestly, you can't go wrong.</p>
+          <p>That's like asking us to pick a favourite child! But honestly, the Butter Chicken is the one that built our reputation &mdash; people have been ordering it since 1990, and the recipe hasn't changed a day. The Lamb Korma, Onion Bhaji, and Kerala Prawns are close behind. But start with the butter chicken. Trust us.</p>
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-question">Is Ajmer's family friendly?</button>
         <div class="faq-answer">
-          <p>Very much so! We love welcoming families. We have plenty of mild options for the little ones, and our staff are always happy to accommodate children. Many of our guests started coming as kids themselves &mdash; and now they bring their own children. That's the kind of place we are.</p>
+          <p>Very much so! We love welcoming families. We have plenty of mild options for the little ones, and our staff are always happy to accommodate children. Many of our guests started coming as kids themselves &mdash; and now they bring their own children. That's the kind of restaurant we always wanted to be.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -1396,8 +1596,8 @@
 <section id="contact">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">We'd Love to Hear from You</h2>
+      <div class="section-label">Book a Table</div>
+      <h2 class="section-title">Your Table Is Waiting</h2>
       <p class="section-subtitle">Whether you're booking a table for two or planning a family celebration, we're here to make it special.</p>
       <div class="divider"></div>
     </div>
@@ -1408,7 +1608,7 @@
         <h3>Balgowlah <span style="font-size: 0.7rem; color: var(--gold); font-weight: 500; letter-spacing: 1px; vertical-align: middle;">&mdash; ORIGINAL</span></h3>
         <div class="contact-row">
           <div class="contact-icon">&#9906;</div>
-          <p>Shop 7, 373 Sydney Rd<br>Balgowlah NSW 2093</p>
+          <address>Shop 7, 373 Sydney Rd<br>Balgowlah NSW 2093</address>
         </div>
         <div class="contact-row">
           <div class="contact-icon">&#9742;</div>
@@ -1417,9 +1617,9 @@
         <div class="contact-row">
           <div class="contact-icon">&#9201;</div>
           <div>
-            <p>Mon&ndash;Thu: 5:00pm &ndash; 10:00pm</p>
-            <p>Fri&ndash;Sat: 5:00pm &ndash; 10:30pm</p>
-            <p>Sun: 5:00pm &ndash; 10:00pm</p>
+            <p>Mon&ndash;Thu: <time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:00">10:00pm</time></p>
+            <p>Fri&ndash;Sat: <time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:30">10:30pm</time></p>
+            <p>Sun: <time datetime="17:00">5:00pm</time> &ndash; <time datetime="22:00">10:00pm</time></p>
           </div>
         </div>
         <div class="contact-map">
@@ -1432,7 +1632,7 @@
         <h3>Belrose <span style="font-size: 0.7rem; color: var(--gold); font-weight: 500; letter-spacing: 1px; vertical-align: middle;">&mdash; GLENROSE VILLAGE</span></h3>
         <div class="contact-row">
           <div class="contact-icon">&#9906;</div>
-          <p>Shop 32, 56-58 Glen St<br>Glenrose Village Shopping Centre<br>Belrose NSW 2085</p>
+          <address>Shop 32, 56-58 Glen St<br>Glenrose Village Shopping Centre<br>Belrose NSW 2085</address>
         </div>
         <div class="contact-row">
           <div class="contact-icon">&#9742;</div>
@@ -1441,9 +1641,9 @@
         <div class="contact-row">
           <div class="contact-icon">&#9201;</div>
           <div>
-            <p>Mon&ndash;Fri: 11:30am &ndash; 9:00pm</p>
-            <p>Sat: 1:30pm &ndash; 9:00pm</p>
-            <p>Sun: 4:30pm &ndash; 9:00pm</p>
+            <p>Mon&ndash;Fri: <time datetime="11:30">11:30am</time> &ndash; <time datetime="21:00">9:00pm</time></p>
+            <p>Sat: <time datetime="13:30">1:30pm</time> &ndash; <time datetime="21:00">9:00pm</time></p>
+            <p>Sun: <time datetime="16:30">4:30pm</time> &ndash; <time datetime="21:00">9:00pm</time></p>
           </div>
         </div>
         <div class="contact-map">
@@ -1466,11 +1666,12 @@
 
     <!-- Nearby Landmarks -->
     <div class="contact-nearby">
-      <h3>Finding Us on the Northern Beaches</h3>
-      <p>Our Balgowlah restaurant sits on Sydney Road, just minutes from Manly, Seaforth, Clontarf, and Fairlight. Our Belrose location is in the heart of Glenrose Village Shopping Centre, easily accessible from Frenchs Forest, Belrose, Davidson, and Terrey Hills. Both locations offer ample free parking and are well-connected by bus routes across the Northern Beaches.</p>
+      <h3>Finding Us on Sydney's Northern Beaches</h3>
+      <p>Our Balgowlah restaurant sits on Sydney Road, just minutes from Manly, Seaforth, Clontarf, Fairlight, and Mosman. Our Belrose location is in the heart of Glenrose Village Shopping Centre, easily accessible from Frenchs Forest, Davidson, Terrey Hills, and Forestville. Whether you're searching for the best Indian restaurant on Sydney's Northern Beaches, both locations offer ample free parking.</p>
     </div>
   </div>
 </section>
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -1478,7 +1679,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo" style="font-size: 1.4rem;">AJMER<span style="color: var(--accent);">'S</span></div>
-        <p>Balgowlah's very first Indian restaurant. Family-owned and operated since 1990. Serving authentic Indian cuisine with love, tradition, and over 30 years of culinary mastery.</p>
+        <p>Family-owned since 1990. Same chef. Same recipes. Same tandoor. Two locations on the Northern Beaches.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
