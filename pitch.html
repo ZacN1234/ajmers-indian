@@ -32,7 +32,15 @@
       background: #fffcf7;
     }
 
-    /* Decorative corner blob */
+    .page-white {
+      background: #fff;
+    }
+
+    .page:first-child {
+      page-break-after: always;
+    }
+
+    /* Decorative corner blobs */
     .page::before {
       content: '';
       position: absolute;
@@ -79,10 +87,10 @@
 
     /* BODY TEXT */
     .body-text {
-      font-size: 14.5px;
-      line-height: 1.75;
+      font-size: 13.5px;
+      line-height: 1.65;
       color: #3a3a3a;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       max-width: 95%;
     }
 
@@ -119,7 +127,7 @@
       font-weight: 600;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: #c4442a;
+      color: #9a6030;
       margin-bottom: 6px;
     }
 
@@ -166,18 +174,18 @@
     }
 
     .offer-text {
-      font-size: 14.5px;
-      line-height: 1.75;
+      font-size: 13px;
+      line-height: 1.6;
       color: #3a3a3a;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     /* PRICING BOX */
     .pricing-box {
       background: #f5f0e8;
       border-radius: 12px;
-      padding: 18px 24px;
-      margin-bottom: 16px;
+      padding: 14px 20px;
+      margin-bottom: 12px;
     }
 
     .pricing-amount {
@@ -202,20 +210,20 @@
 
     /* CLOSING TEXT */
     .closing {
-      font-size: 14.5px;
-      line-height: 1.75;
+      font-size: 13px;
+      line-height: 1.6;
       color: #3a3a3a;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     /* SIGN OFF */
     .signoff {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       font-style: italic;
       color: #c4442a;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .signoff-block {
@@ -241,8 +249,8 @@
     }
 
     .signoff-qr img {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 4px;
     }
 
@@ -255,7 +263,7 @@
     /* FOOTER LINE */
     .footer-line {
       position: absolute;
-      bottom: 16mm;
+      bottom: 10mm;
       left: 24mm;
       right: 24mm;
       display: flex;
@@ -270,9 +278,116 @@
       color: #aaa;
     }
 
+    /* ===================== PAGE 2 ===================== */
+
+    .page2 {
+      page-break-before: always;
+    }
+
+    .page2-header {
+      margin-bottom: 20px;
+    }
+
+    .page2-header h2 {
+      margin-bottom: 4px;
+    }
+
+    .page2-subtitle {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* COMPARISON TABLE */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    .comparison-table thead th {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid #e0d5c3;
+      color: #1a1a1a;
+    }
+
+    .comparison-table thead th:first-child {
+      width: 22%;
+    }
+
+    .comparison-table thead th:nth-child(2),
+    .comparison-table thead th:nth-child(3) {
+      width: 39%;
+    }
+
+    .comparison-table tbody td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f0ece4;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .comparison-table tbody td:first-child {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .comparison-table tbody td:nth-child(2) {
+      color: #e74c3c;
+    }
+
+    .comparison-table tbody td:nth-child(3) {
+      color: #27ae60;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* WHAT'S INCLUDED */
+    .included-section {
+      margin-bottom: 20px;
+    }
+
+    .included-section h2 {
+      margin-bottom: 14px;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+
+    .included-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: #3a3a3a;
+      line-height: 1.5;
+    }
+
+    .included-item .check {
+      color: #27ae60;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
     @media print {
       body { background: #fff; }
       .page { margin: 0; box-shadow: none; }
+    }
+
+    .client-logo {
+      position: absolute; top: 18mm; right: 24mm; z-index: 2;
+      max-height: 50px; max-width: 120px; object-fit: contain;
     }
 
     @media screen {
@@ -283,7 +398,10 @@
 </head>
 <body>
 
+  <!-- ============ PAGE 1: THE PERSONAL NOTE ============ -->
   <div class="page">
+
+    <img src="images/logo.svg" alt="Ajmers logo" class="client-logo">
 
     <div class="top-label">A Note From a Local 15-Year-Old</div>
 
@@ -294,7 +412,7 @@
     </p>
 
     <p class="body-text">
-      Ajmer's is a Northern Beaches institution — 36 years, same family, Balgowlah's very first Indian restaurant. That's an incredible legacy. But your website isn't working properly — it's returning errors and not loading for visitors. So I <strong>rebuilt your website from scratch, completely free</strong>, to show you what a modern one could do for you — with no obligation at all.
+      Ajmer's is a Northern Beaches institution — 36 years, same family, Balgowlah's very first Indian restaurant. That's an incredible legacy. But your current website isn't working — it's returning errors for visitors trying to find you online. So I <strong>rebuilt your website from scratch, completely free</strong>, to show you what a modern one could do for you — with no obligation at all.
     </p>
 
     <div class="divider"></div>
@@ -343,6 +461,120 @@
       <div class="signoff-qr">
         <img src="images/zac-website-qr.png" alt="QR code to Zac's web design website">
         <p>My website</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-line">
+      <p>Designed for Ajmer's Indian Restaurant</p>
+      <p>Balgowlah's first Indian restaurant, serving the Northern Beaches since 1990</p>
+    </div>
+
+  </div>
+
+  <!-- ============ PAGE 2: WHAT WE IMPROVED ============ -->
+  <div class="page page-white page2">
+
+    <div class="page2-header">
+      <h2>What Your New Website Does Better</h2>
+      <p class="page2-subtitle">A side-by-side look at the key improvements</p>
+    </div>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Current Site</th>
+          <th>New Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Website status</td>
+          <td>Returns 403 errors — broken for visitors</td>
+          <td>Fast, working, loads in under 1 second</td>
+        </tr>
+        <tr>
+          <td>Google search data</td>
+          <td>No structured data — invisible to Google</td>
+          <td>Full Restaurant + FAQ schema with menu items and prices</td>
+        </tr>
+        <tr>
+          <td>AI search (ChatGPT, Google AI)</td>
+          <td>Not optimised</td>
+          <td>13 FAQ entries + definitional content built for AI answers</td>
+        </tr>
+        <tr>
+          <td>Contact info</td>
+          <td>Buried or missing</td>
+          <td>Phone, address, hours, maps for both locations on every section</td>
+        </tr>
+        <tr>
+          <td>Menu</td>
+          <td>Not accessible online</td>
+          <td>Full menu with descriptions, prices, and dietary tags (V/GF)</td>
+        </tr>
+        <tr>
+          <td>Customer reviews</td>
+          <td>Not shown</td>
+          <td>6 real reviews + ratings from FirstTable, TripAdvisor, OpenTable</td>
+        </tr>
+        <tr>
+          <td>Your 36-year story</td>
+          <td>Not told</td>
+          <td>Compelling copy about Chef Daljit, the family, and your legacy</td>
+        </tr>
+        <tr>
+          <td>Both locations</td>
+          <td>Unclear presentation</td>
+          <td>Dedicated section with maps, hours, and booking for each</td>
+        </tr>
+        <tr>
+          <td>Mobile experience</td>
+          <td>Broken/not loading</td>
+          <td>Custom responsive design for all screen sizes</td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td>No HTTPS</td>
+          <td>Full HTTPS with security certificate</td>
+        </tr>
+        <tr>
+          <td>BYO &amp; features</td>
+          <td>Not highlighted</td>
+          <td>Prominently featured in FAQ and location cards</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- WHAT'S INCLUDED -->
+    <div class="included-section">
+      <h2>What's Included</h2>
+      <div class="included-grid">
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>Custom-designed website (not a template)</span>
+        </div>
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>Fast, secure hosting on Cloudflare</span>
+        </div>
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>SEO &amp; AI search optimisation</span>
+        </div>
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>Mobile responsive on all devices</span>
+        </div>
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>Unlimited updates — just ask</span>
+        </div>
+        <div class="included-item">
+          <span class="check">&#10003;</span>
+          <span>Ongoing support from a real person</span>
+        </div>
       </div>
     </div>
 

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Connect Your New Website — Simple Guide for Ajmer's Indian Restaurant</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #2a2a2a;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 20mm 14mm;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .header-left h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .header-left p {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 10px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .header-right strong {
+      color: #1a1a1a;
+    }
+
+    /* INTRO */
+    .intro {
+      background: #f8f6f1;
+      border-radius: 8px;
+      padding: 11px 16px;
+      margin-bottom: 10px;
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .intro strong {
+      color: #1a1a1a;
+    }
+
+    /* EXPLAINER */
+    .explainer {
+      background: #fff;
+      border: 1.5px solid #e0d8c8;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+
+    .explainer h3 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+
+    .explainer p {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    .explainer .safe {
+      color: #27ae60;
+      font-weight: 600;
+    }
+
+    /* SECTION HEADING */
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 7px;
+      margin-top: 2px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* STEPS */
+    .step {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 7px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .step-content p {
+      font-size: 10.5px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .step-content .field-box {
+      background: #f8f6f1;
+      border: 1.5px solid #e0d8c8;
+      border-radius: 6px;
+      padding: 7px 12px;
+      margin-top: 4px;
+    }
+
+    .field-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .field-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .field-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .field-value {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1a1a1a;
+      font-family: monospace;
+      background: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      flex: 1;
+    }
+
+    .field-old {
+      text-decoration: line-through;
+      color: #ccc;
+      font-weight: 400;
+    }
+
+    .field-new {
+      color: #27ae60;
+    }
+
+    /* NOTE */
+    .note-box {
+      background: #fff8e6;
+      border: 1.5px solid #e6c84a;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+    }
+
+    .note-box p {
+      font-size: 10.5px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .note-box strong {
+      color: #1a1a1a;
+    }
+
+    /* DONE BOX */
+    .done-box {
+      background: #f0faf3;
+      border: 1.5px solid #27ae60;
+      border-radius: 8px;
+      padding: 10px 16px;
+    }
+
+    .done-box h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #27ae60;
+      margin-bottom: 3px;
+    }
+
+    .done-box p {
+      font-size: 10.5px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 6px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer p {
+      font-size: 9px;
+      color: #bbb;
+    }
+
+    .footer strong {
+      color: #888;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    @media screen {
+      body { background: #ddd; }
+      .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); margin: 20px auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Connecting Your New Website</h1>
+        <p>A simple guide for Ajmer's Indian Restaurant</p>
+      </div>
+      <div class="header-right">
+        <strong>Prepared by Zac Nowytarger</strong><br>
+        Questions? Call 0401 102 066
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      To connect your new website, we need to change one setting in your <strong>Crazy Domains</strong> account called "nameservers." This points your domain to my hosting system where the new site lives. <strong>That's all you need to do &mdash; I'll take care of everything else, including making sure your email keeps working.</strong>
+    </div>
+
+    <!-- EXPLAINER -->
+    <div class="explainer">
+      <h3>Will this affect my email?</h3>
+      <p>Before we make any changes, I'll document all your current email settings and make sure they're set up on the new system first. Your email will keep working as normal &mdash; I'll handle that side of things so you don't have to worry about it. <span class="safe">I won't ask you to make the change until everything is ready.</span></p>
+    </div>
+
+    <!-- STEPS -->
+    <div class="section-heading">What you need to do in Crazy Domains</div>
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Log into Crazy Domains</h3>
+        <p>Go to <strong>crazydomains.com.au</strong> and sign in with your account. If you've forgotten your password, click "Forgot Password" to reset it.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Find your domain</h3>
+        <p>Click <strong>"Domains"</strong> in the top menu, then <strong>"Manage"</strong> from the left menu. Click on <strong>ajmers.com.au</strong>.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Find the Nameservers setting</h3>
+        <p>Scroll down to the <strong>"Nameservers"</strong> section. You'll see it currently shows the old values below. Click <strong>"Modify"</strong> next to Nameservers.</p>
+        <div class="field-box">
+          <div class="field-row">
+            <span class="field-label">Current NS 1</span>
+            <span class="field-value field-old">alec.ns.cloudflare.com</span>
+          </div>
+          <div class="field-row">
+            <span class="field-label">Current NS 2</span>
+            <span class="field-value field-old">cruz.ns.cloudflare.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3>Replace with the new nameservers</h3>
+        <p>Delete the old ones and type in <strong>exactly</strong>:</p>
+        <div class="field-box">
+          <div class="field-row">
+            <span class="field-label">New NS 1</span>
+            <span class="field-value field-new">dave.ns.cloudflare.com</span>
+          </div>
+          <div class="field-row">
+            <span class="field-label">New NS 2</span>
+            <span class="field-value field-new">shubhi.ns.cloudflare.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <h3>Save</h3>
+        <p>Click <strong>"Update"</strong>. Crazy Domains may ask to confirm &mdash; click Yes.</p>
+      </div>
+    </div>
+
+    <!-- NOTE -->
+    <div class="note-box">
+      <p><strong>How long does it take?</strong> The change usually kicks in within a few hours, but can take up to 24 hours. During this time your old site may still show for some visitors &mdash; this is normal and nothing will break. <strong>I will have already set up your email records on the new system before you make this change, so your email will continue working throughout.</strong></p>
+    </div>
+
+    <!-- DONE -->
+    <div class="done-box">
+      <h3>That's all you need to do &mdash; I'll handle everything else.</h3>
+      <p>Before you make this change, I'll contact you to confirm that your email settings have been transferred and everything is ready. Once you've saved the new nameservers, let me know and I'll activate the new site, set up the security certificate, and make sure everything works. If you get stuck, call me on <strong>0401 102 066</strong>.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>Guide prepared for <strong>Ajmer's Indian Restaurant</strong> &mdash; Manjit &amp; Daljit Saini</p>
+      <p>Zac Nowytarger &middot; 0401 102 066 &middot; zacmanzacmanoz@gmail.com</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
